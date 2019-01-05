@@ -1,7 +1,7 @@
 # java-regex
 Java Fundamentals: The Regular Expressions Playbook by Victor Grazi on Pluralsight
 
-## Regular Expressions
+## Regular expressions
 Expression | Description | Example
 -----------|-------------|--------
 . | All-purpose wildcard | everything (..........)
@@ -10,8 +10,8 @@ Expression | Description | Example
 ## RegEx built-in character classes
 In order to use this expression in Java, We must doble up the "\\"
 ```java
-	// Any digit
-	System.out.println("I'm 25 years old".replaceFirst("\\d", "3"));
+// Any digit
+System.out.println("I'm 25 years old".replaceFirst("\\d", "3"));
 ``` 
 Expression | Class Description|Example
 -----------|------------------|-------
@@ -27,14 +27,14 @@ Expression | Class Description|Example
 [\w&&[^1-9]] | Matches an intersection set | Any letter and only 0
 (JU\|JO)AN | Matches an alternation | JUAN *or* JOAN 
 
-## Specialized Character Classes
+## Specialized character classes
 <p align="center"><img width="auto" src="images/specialized_character_classes.png" alt="Vue logo"></p>
 
 ## Quantifiers
 Expression | Description | Example
 -----------|-------------|--------
-* | Zero or more | aaaaa (a*), \d*
-+ | 1 or more | \s+
+\* | Zero or more | aaaaa (a*), \d*
+\+ | 1 or more | \s+
 ? | Zero or more | \w?
 {m} | Exactly m times | {2}
 {m,} | At least m times | {3,}
@@ -45,4 +45,20 @@ Mode | Description | Example
 -----------|-------------|--------
 Greedy (default) | Match as much as possible | \d* (As many digits as possible)
 ? Lazy or Reluctant | Match as little as possible | \s+? (As few spaces as possible)
-+ Possessive | Like greedy but no backtrack | \w*+ (As many word characters as possible, but no backtrack)
+\+ Possessive | Like greedy but no backtrack | \w*+ (As many word characters as possible, but no backtrack)
+
+## Capture groups
+Expression | Description | Example
+-----------|-------------|--------
+( *regex* ) | Parentheses group the regex | (\\w+)(-(\\w+))+-(\\w+)
+
+## Named capture groups
+Expression | Description | Example
+-----------|-------------|--------
+ (?\<name> *regex* ) | Captures the text matched into the group \<name> | (?\<business>\\w+)(-(\\w+))+-(?\<region>\\w+) 
+
+## Case insensitive flag
+Expression | Description | Example
+-----------|-------------|--------
+((?i) *regex* ) | Turns the group case insensitve | ((?i)\\w)
+(?i: *regex*) | Turns the group case insensitve | (?i:\\w)
