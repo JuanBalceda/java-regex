@@ -60,5 +60,23 @@ Expression | Description | Example
 ## Case insensitive flag
 Expression | Description | Example
 -----------|-------------|--------
-((?i) *regex* ) | Turns the group case insensitve | ((?i)\\w)
-(?i: *regex*) | Turns the group case insensitve | (?i:\\w)
+((?i) *regex* ) | Capture the group case insensitve | ((?i)\\w)
+(?i: *regex*) | This is not capture in the group count | (?i:\\w)
+
+## Backreferences
+Expression | Description | Example
+-----------|-------------|--------
+( *regex* )**\1** | Substituted with the text matched by the capture group with that number (1) | (abc)\1+
+(?\<name>abc)**\k\<name>**+ | Substituted with the text matched by the named capture group | (?\<quote>abc)\k\<quote>+
+
+## Anchors & Boundaries
+Expression | Description 
+-----------|-------------
+\B(word) | A non-word boundary  
+(word)\b | A word boundary 
+^(word) | The beginning of a line  
+(word)$ | The end of a line named   
+\A |	The beginning of the input 
+\G |	The end of the previous match 
+\Z |	The end of the input but for  the final terminator, if any 
+\z |	The end of the input 

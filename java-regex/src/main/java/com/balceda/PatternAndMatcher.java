@@ -3,7 +3,6 @@ package com.balceda;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class PatternAndMatcher {
 
